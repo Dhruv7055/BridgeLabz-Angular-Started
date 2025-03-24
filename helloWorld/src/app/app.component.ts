@@ -9,8 +9,12 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'helloWorld';
+  bridgeLabzUrl = 'https://www.bridgelabz.com';
   imgUrl = '../assets/BL_logo_square_jpg.jpg';
   ngOnInit() {
     console.log('Hello from BridgeLabz');
+  }
+  openBridgeLabz(): void {
+    window.open(this.bridgeLabzUrl, '_blank'); // Opens in a new tab
   }
 }
