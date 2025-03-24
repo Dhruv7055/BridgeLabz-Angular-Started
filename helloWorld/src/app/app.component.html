@@ -1,49 +1,43 @@
 <style>
-  /* Center everything */
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 25%;
+  }
+  input {
+    width: 25%;
+    margin: 0 auto;
+    display: block;
+  }
+  h1 {
     text-align: center;
   }
-
-  img {
-    width: 25%;
-    cursor: pointer;
-    margin-bottom: 20px; /* Space below image */
-  }
-
-  input {
-    margin-top: 10px;
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-
-  h2 {
-    margin-top: 15px;
-    font-weight: bold;
-    color: #333;
+  .error-output {
+    margin-left: 10px;
+    font-size: 12px;
+    font-style: italic;
+    color: red;
   }
 </style>
 
-<div class="container">
-  <h1>{{ title }}</h1>
-
+<div>
+  <h1>Hello {{ this.username }} form BridgeLabz</h1>
   <img
     [src]="imgUrl"
+    (click)="onClick($event)"
     alt="The BridgeLabz logo: a bridge to employment through lab works."
-    width="200"
-    (click)="openBridgeLabz()"
   />
-
-  <label for="name">Enter Your Name:</label>
-  <input type="text" id="name" [(ngModel)]="userName" placeholder="Your Name" />
-
-  <h2 *ngIf="userName">Hello, {{ userName }} from BridgeLabz!</h2>
+  <div>
+    <input
+      type="text"
+      (input)="onInput($event)"
+      [(ngModel)]="username"
+      placeholder="Enter your name"
+    />
+    <br />
+    <span class="error-output">{{ this.nameError }}</span>
+    <br />
+  </div>
 </div>
 
 <router-outlet />
